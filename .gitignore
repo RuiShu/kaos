@@ -1,7 +1,7 @@
 # Swiss project
-data
-examples/data
-examples/outputs
+/data
+/examples/data
+/examples/outputs
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
