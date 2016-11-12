@@ -1,7 +1,7 @@
 from keras.callbacks import Callback
 from keras import backend as K
-from kaos.nputils import log_sum_exp
-from kaos.utils import tuplify, listify
+from nputils import log_sum_exp
+from utils import tuplify, listify
 import numpy as np
 import sys
 import os

@@ -1,6 +1,20 @@
 # Kaos
 Variational neural networks for Keras
 
+# Install
+
+Install from pip
+
+      pip install kaos
+
+
+Install from source (development version)
+
+      git clone https://www.github.com/RuiShu/kaos
+      cd kaos
+      python setup.py install
+
+
 # Philosophy
 The main idea behind Kaos is to separate the Bayesian network (i.e. the set of
 conditional distributions) from the neural networks (i.e. the function
