@@ -1,11 +1,11 @@
-# TensorBayes
+# Kaos
 Variational neural networks for Keras
 
 # Install
 
 Install from pip
 
-      pip install tensorbayes
+      pip install kaos
 
 
 Install from source (development version)
