@@ -3,7 +3,7 @@ import os
 
 setup(
     # Application name:
-    name="tensorbayes",
+    name="kaos",
 
     # Version number:
     version="0.01",
@@ -24,13 +24,13 @@ setup(
 
     license="LICENSE.md",
     description="a library designed to simplify the building of deep amortized inference models",
-    keywords='tensorflow deep learning',
+    keywords='keras deep learning',
 
-    install_requires = ['numpy','keras','tensorflow'],
+    install_requires = ['numpy','keras'],
 
     entry_points = {
         'console_scripts': [
-            'tensorbayes=tensorbayes.scripts:main',
+            'kaos=kaos.scripts:main',
         ],
     },
 
