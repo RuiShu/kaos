@@ -1,4 +1,4 @@
-# Kaos
+# TensorBayes
 Variational neural networks for Keras
 
 # Install
