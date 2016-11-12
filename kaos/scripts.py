@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-scripts.py: command line executable for tensorbayes
+scripts.py: command line executable for kaos
 
 '''
 
