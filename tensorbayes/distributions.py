@@ -1,7 +1,8 @@
 from keras.layers import Lambda, merge
 from keras import backend as K
-from kaos.ladder import *
-from kaos.softplus import *
+from ladder import *
+from softplus import *
+
 import numpy as np
 import pickle as pkl
 import os, urllib, gzip

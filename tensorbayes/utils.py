@@ -1,6 +1,6 @@
+import itertools
 import numpy as np
 import os
-import itertools
 import sys
 
 def _valid_type(arg_type):
