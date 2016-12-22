@@ -126,11 +126,10 @@ p_net['x'].net = Sequential([Dense(256, input_dim=60),
                              Dense(784),
                              Activation('sigmoid')])
 
-mnist = Mnist(100, 100)
 vae = VAE(u_net=u_net, q_net=q_net, p_net=p_net)
 vae.compile('adam', loss_weights=[1.0, 100./50000., 1.0])
 
-dataloader = Mnist(100, 100)
+dataloader = Mnist(nb_data=100, batchsize=100)
 losslog = LossLog()
 nll = NegativeLogLikelihood(dataloader,
                             n_samples=1,
