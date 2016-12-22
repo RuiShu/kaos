@@ -5,7 +5,7 @@ from kaos.utils import tuplify, listify
 from kaos.nputils import log_sum_exp
 import itertools
 import numpy as np
-
+import sys
 
 class BayesNet(object):
     """Abstract class for all Bayesian networks.
@@ -130,7 +130,7 @@ class BayesNet(object):
         return nb_iter, iter_per_epoch
 
     def fit(self, dataloader, nb_iter=None, nb_epoch=None, iter_per_epoch=None,
-            callbacks=[]):
+            callbacks=[], verbose=0):
         """Trains the underlying Keras model.
 
         Args:
@@ -154,11 +154,24 @@ class BayesNet(object):
                 # Begin epoch
                 if i % iter_per_epoch == 0:
                     callbacks.on_epoch_begin(epoch)
+
                 # Execution
                 callbacks.on_batch_begin(i)
+
+                if verbose > 0:
+                    import time
+                    time.sleep(0.001)
+                    j = i % iter_per_epoch
+                    perc = int(100 * (j + 1) /iter_per_epoch)
+                    prog = ''.join(['='] * (perc/2))
+                    string = "[{:50s}] {:3d}%\r".format(prog, perc)
+                    sys.stdout.write(string); sys.stdout.flush()
+
                 losses = self.keras_model.train_on_batch(
                     *dataloader.get_training_batch())
+
                 callbacks.on_batch_end(i)
+
                 # End epoch
                 if (i + 1) % iter_per_epoch == 0:
                     callbacks.on_epoch_end(epoch, logs={'losses': losses})
