@@ -43,7 +43,7 @@ class VAE(BayesNet):
             p['x'] += [c]
 
         def x_loss(x, x_param):
-            loss = K.categorical_crossentropy(q['y'], q['y'])
+            loss = -K.categorical_crossentropy(q['y'], q['y'])
             for i in xrange(10):
                 loss += q['y'][:, i] * self.labeled_loss(x, q['z'][i], s['z'][i], p['x'][i])
             return loss
@@ -127,7 +127,7 @@ p_net['x'].net = Sequential([Dense(256, input_dim=60),
                              Activation('sigmoid')])
 
 vae = VAE(u_net=u_net, q_net=q_net, p_net=p_net)
-vae.compile('adam', loss_weights=[1.0, 100./50000., 1.0])
+vae.compile('adam', loss_weights=[1.0, 1.0, 1.0])
 
 dataloader = Mnist(nb_data=100, batchsize=100)
 losslog = LossLog()
